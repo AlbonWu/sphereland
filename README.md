@@ -1,2 +1,2 @@
-# sphereland
-Code for the Sphereland project
+# Sphereland Project
+The computer-based animation for the Sphereland project can be found here, written in Java.
