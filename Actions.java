@@ -10,13 +10,14 @@ public class Actions extends JPanel implements ActionListener, KeyListener {
 
 	Timer t = new Timer(5, this);
 	// used to move the shape
+	
 	Rectangle2D r;
 
 	double x = 0, y = 0, velx = 0, vely = 0;
 	// x, y are the coordinates and velx, vely describe the increments
 	int width;
 	int height;
-	
+
 	public Actions(int width, int height) {
 		t.start();
 		// start the timer
@@ -41,23 +42,17 @@ public class Actions extends JPanel implements ActionListener, KeyListener {
 		// access class Shapes which draws the houses
 	}
 
-	public void actionPerformed(ActionEvent e) {
-		if (x < 0 || x > 800) {
-			velx *= -1;
-		}
-		if (y < 0 || y > 800) {
-			vely *= -1;
-		}
-		
-		Shapes s = new Shapes();
-		
-		
-		x += velx;
-		y += vely;
-		// change the coordinates
+	public void actionPerformed(ActionEvent e, Graphics g) {
 
-		repaint();
-		// redraw the square in the incremented positions
+		Shapes s = new Shapes();
+		s.house1(g);
+		s.house1(g);
+		s.house2(g);
+		s.house3(g);
+		s.square1(g);
+		s.square2(g);
+		s.square3(g);
+
 	}
 
 	public void up() {
@@ -128,5 +123,24 @@ public class Actions extends JPanel implements ActionListener, KeyListener {
 			return line2.intersects(rect1);
 		}
 		return false;
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		if (x < 0 || x > 800) {
+			velx *= -1;
+		}
+		
+		if (y < 0 || y > 800) {
+			vely *= -1;
+		}
+		
+		x += velx;
+		y += vely;
+		// change the coordinates
+
+		repaint();
+		// redraw the square in the incremented positions
+
 	}
 }
